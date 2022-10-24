@@ -13,7 +13,7 @@ angularApp.controller('mainController', [
 		$scope.formattedUp = $filter('uppercase')($scope.var);
 		$log.info($scope.formattedUp);
 
-		$log.info('$resource:')
+		$log.info('$resource:');
 		$log.warn($resource);
 	}
 ]);
