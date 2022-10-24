@@ -38,7 +38,8 @@
 
             <div ng-controller="mainController">
 
-                <h1>{{ myVar }}</h1>
+								<!-- hide raw html until angular kicks in -->
+                <h1 ng-cloak>{{ myVar }}</h1>
 
 								<div>
 									<label for="form-input">input text</label>
@@ -57,6 +58,7 @@
 									<div ng-show="input.length > charNum">more than 5 chars</div>
 								</div>
 
+								<input type="button" value="Click me" ng-click="alertClick()" />
 
 								<h3>Rules list</h3>
 								<ul>
@@ -64,6 +66,13 @@
 										{{ rule.ruleName }}
 									</li>
 								</ul>
+
+								<div>
+								<label for="rule">Add rule</label>
+								<input type="text" name="rule" ng-model="newRule">
+								<a href="#" class="btn btn-default" ng-click="addRule()">Add</a>
+								</div>
+
             </div>
 
 		</div>
