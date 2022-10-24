@@ -8,11 +8,12 @@ angularApp.controller('mainController', [
 	function ($scope, $log, $filter, $resource) {
 		$log.warn($scope);
 
-		$scope.name = 'nome';
+		$scope.var = 'interpolated var';
 
-		$scope.formattedName = $filter('uppercase')($scope.name);
-		$log.info($scope.formattedName);
+		$scope.formattedUp = $filter('uppercase')($scope.var);
+		$log.info($scope.formattedUp);
 
+		$log.info('$resource:')
 		$log.warn($resource);
 	}
 ]);
