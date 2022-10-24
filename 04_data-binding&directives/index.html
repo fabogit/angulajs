@@ -38,21 +38,32 @@
 
             <div ng-controller="mainController">
 
-                <h1>Hello {{ name }}!</h1>
-
+                <h1>{{ myVar }}</h1>
 
 								<div>
-									<label for="form-input">insert text</label>
+									<label for="form-input">input text</label>
 									<input type="text" name="form-input" id="form-input" ng-Model="input" />
 								</div>
-								<p>update me! {{ lowercaseInput() }}</p>
+								<p>my input in lowercase -> {{ lowercaseInput() }}</p>
 
+								<div ng-hide="myList.length < 1">Array {{ myList.length}}</div>
 
-								<div ng-show="myList.length > 0">Array {{ myList.length}}</div>
-
-								<div class="alert alert-warning" ng-if="input.length !== maxChars">
-									must be 5 char
+								<div class="alert" ng-if="input.length !== charNum">
+									Input in not 5 char long
 								</div>
+
+								<div class="alert" ng-class="{ 'alert-warning': input.length < charNum, 'alert-danger': input.length > charNum }" ng-show="input.length !== charNum">
+									<div ng-show="input.length < charNum">Less than 5 chars</div>
+									<div ng-show="input.length > charNum">more than 5 chars</div>
+								</div>
+
+
+								<h3>Rules list</h3>
+								<ul>
+									<li ng-repeat="rule in rules">
+										{{ rule.ruleName }}
+									</li>
+								</ul>
             </div>
 
 		</div>
