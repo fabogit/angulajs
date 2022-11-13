@@ -9,7 +9,12 @@ myApp.config(function ($routeProvider) {
 			controller: 'mainController'
 		})
 
-		.when('/second', {
+		.when('/second/', {
+			templateUrl: 'pages/second.html',
+			controller: 'secondController'
+		})
+
+		.when('/second/:id', {
 			templateUrl: 'pages/second.html',
 			controller: 'secondController'
 		});
@@ -22,8 +27,11 @@ myApp.controller('mainController', ['$scope', '$log', function ($scope, $log) {
 
 }]);
 
-myApp.controller('secondController', ['$scope', '$log', function ($scope, $log) {
+myApp.controller('secondController', ['$scope', '$log', '$routeParams', function ($scope, $log, $routeParams) {
 
+	$scope.id = $routeParams.id || 'no id param';
 	$scope.name = 'Second';
+
+	$log.info(`url param: ${$scope.id}`);
 
 }]);
