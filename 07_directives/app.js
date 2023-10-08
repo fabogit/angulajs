@@ -123,6 +123,13 @@ myApp.directive('searchResult', function () {
 					}
 				}
 			};
+		},
+		// shorthand for compile return/post
+		link: function (scope, elements, attrs) {
+			console.info('linking');
+			console.log(scope);
+			console.log(elements);
+			// perform additional operations on scope/elem
 		}
 	};
 });
