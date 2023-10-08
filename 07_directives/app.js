@@ -38,13 +38,13 @@ myApp.controller('secondController', ['$scope', '$log', '$routeParams', 'nameSer
 
 }]);
 
-myApp.directive('searchResult', function(){
+myApp.directive('searchResult', function () {
 	return {
 		// allow to call directive in html using Attribute/Element/Class/coMment mode
 		restrict: 'AECM',
-		template: '<a href="#!" class="list-group-item"><h4 class="list-group-item-heading">Username</h4><p class="list-group-item-text">Address</p></a>',
+		templateUrl: 'directives/search-result.html',
 		// directive name will be replaced using the template itself
 		replace: true
 
-	}
-})
+	};
+});
