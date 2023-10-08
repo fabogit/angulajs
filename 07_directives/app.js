@@ -32,14 +32,26 @@ myApp.service('nameService', function () {
 
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($scope, $log, nameService) {
 
-	$scope.person = {
+	$scope.info = {
 		name: 'Name1',
 		address: 'Address1'
 	};
 	$scope.object = {
 		key: 'value',
 		key2: 'stuff'
-	}
+	};
+
+	$scope.person = {
+		name: 'John Doe',
+		address: '555 Main St.',
+		city: 'New York',
+		state: 'NY',
+		zip: '11111'
+	};
+
+	$scope.formattedAddress = function (person) {
+		return person.address + ', ' + person.city + ', ' + person.state + ' ' + person.zip;
+	};
 
 }]);
 
@@ -58,10 +70,13 @@ myApp.directive('searchResult', function () {
 		scope: {
 			// binds html attributes and scope variables
 			// @ = texts
-			personName: '@',
-			personAddress: '@',
+			infoName: '@',
+			infoAddress: '@',
 			// = two way binding
-			scopeObject: '='
+			scopeObject: '=',
+			personObject: "=",
+			// function
+			formattedAddressFunction: "&"
 		}
 	};
 });

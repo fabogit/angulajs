@@ -1,10 +1,18 @@
 <a href="#!" class="list-group-item">
-	<h4 class="list-group-item-heading">{{ personName }}</h4>
-	<p class="list-group-item-text">{{ personAddress }}</p>
+	<h4 class="list-group-item-heading">{{ infoName }}</h4>
+	<p class="list-group-item-text">{{ infoAddress }}</p>
 	<ul ng-if="scopeObject">
 		<li class="list-group-item-text">
 			Object is: {{ scopeObject }}
 		</li>
 		<li class="list-group-item-text">Key value is: {{ scopeObject.key }}</li>
 	</ul>
+
+	<div ng-if="personObject">
+		<h4 class="list-group-item-heading">{{ personObject.name }}</h4>
+		<p class="list-group-item-text">
+			{{ formattedAddressFunction({ aperson: personObject }) }}
+		</p>
+	</div>
+
 </a>
