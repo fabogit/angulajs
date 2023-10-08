@@ -1,12 +1,11 @@
 <label>Search</label>
-<input type="text" value="value">
+<input type="text" value="value" />
 
 <h3>Seach result</h3>
 
-
 <div class="list-group">
 	<!-- Attribute and Element are allowed by default by angularjs -->
-	<search-result></search-result>
+	<search-result person-name="{{ person.name }}" person-address="{{ person.address }}"></search-result>
 	<div search-result></div>
 
 	<!-- class and comment must be enabled in the restrict directive property -->

@@ -32,6 +32,11 @@ myApp.service('nameService', function () {
 
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($scope, $log, nameService) {
 
+	$scope.person = {
+		name: 'Name1',
+		address: 'Address1'
+	};
+
 }]);
 
 myApp.controller('secondController', ['$scope', '$log', '$routeParams', 'nameService', function ($scope, $log, $routeParams, nameService) {
@@ -44,7 +49,13 @@ myApp.directive('searchResult', function () {
 		restrict: 'AECM',
 		templateUrl: 'directives/search-result.html',
 		// directive name will be replaced using the template itself
-		replace: true
-
+		replace: true,
+		// Isolate directive scope from parent
+		scope: {
+			// binds html attributes and scope variables
+			// @ = texts
+			personName: '@',
+			personAddress: '@'
+		}
 	};
 });
