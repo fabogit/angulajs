@@ -102,6 +102,27 @@ myApp.directive('searchResult', function () {
 			personObject: "=",
 			// function
 			formattedAddressFunction: "&"
+		},
+		// directive initialization
+		compile: function (elem, attrs) {
+			console.info('Compiling');
+			console.log(elem);
+			return {
+				// pre: function (scope, elements, attrs) {
+				// 	console.info('Pre-linking');
+				// 	console.log(elements);
+				// },
+
+				// directove binding
+				post: function (scope, elements, attrs) {
+					console.info('Post-linking');
+					console.log(scope);
+					console.log(elements);
+					if (scope.personObject.name == 'Jane Doe') {
+						elements.removeAttr('class');
+					}
+				}
+			};
 		}
 	};
 });
