@@ -26,26 +26,15 @@ weatherApp.controller('homeController', [
 
 weatherApp.controller('forecastController', [
 	'$scope',
-	'$resource',
 	'$routeParams',
 	'cityService',
-	function ($scope, $resource, $routeParams, cityService) {
+	'weatherService',
+	function ($scope, $routeParams, cityService, weatherService) {
 
 		$scope.city = cityService.city;
-
 		$scope.days = $routeParams.days || '2';
 
-		// set api key! http://openweathermap.org/appid
-		// http://api.openweathermap.org/data/2.5/forecast/daily?APPID=API_KEY
-
-		API_KEY = 'api-key';
-
-		$scope.weaterAPI = $resource(
-			`http://api.openweathermap.org/data/2.5/forecast/daily?APPID=${API_KEY}`,
-			{ get: { method: 'JSONP' } }
-		);
-
-		$scope.weatherResult = $scope.weaterAPI.get({ q: $scope.city, cnt: $scope.days });
+		$scope.weatherResult = weatherService.GetWeather($scope.city, $scope.days)
 
 		$scope.convertToCelsius = function (kelvinDeg) {
 			return (kelvinDeg - 273.15).toFixed(1);
