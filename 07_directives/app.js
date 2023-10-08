@@ -103,6 +103,7 @@ myApp.directive('searchResult', function () {
 			// function
 			formattedAddressFunction: "&"
 		},
+		transclude: true,
 		// directive initialization
 		compile: function (elem, attrs) {
 			console.info('Compiling');
