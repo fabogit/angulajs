@@ -1,4 +1,10 @@
 <a href="#!" class="list-group-item">
 	<h4 class="list-group-item-heading">{{ personName }}</h4>
 	<p class="list-group-item-text">{{ personAddress }}</p>
+	<ul ng-if="scopeObject">
+		<li class="list-group-item-text">
+			Object is: {{ scopeObject }}
+		</li>
+		<li class="list-group-item-text">Key value is: {{ scopeObject.key }}</li>
+	</ul>
 </a>

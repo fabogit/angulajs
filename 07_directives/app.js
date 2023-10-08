@@ -36,6 +36,10 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($
 		name: 'Name1',
 		address: 'Address1'
 	};
+	$scope.object = {
+		key: 'value',
+		key2: 'stuff'
+	}
 
 }]);
 
@@ -55,7 +59,9 @@ myApp.directive('searchResult', function () {
 			// binds html attributes and scope variables
 			// @ = texts
 			personName: '@',
-			personAddress: '@'
+			personAddress: '@',
+			// = two way binding
+			scopeObject: '='
 		}
 	};
 });
