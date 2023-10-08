@@ -11,15 +11,15 @@
 		scope-object="object">
 	</search-result>
 
-	<search-result
-		person-object="person"
-		formatted-address-function="formattedAddress(aperson)">
-	</search-result>
-
-
 	<div search-result></div>
 
 	<!-- class and comment must be enabled in the restrict directive property -->
 	<div class="search-result"></div>
 	<!-- directive: search-result -->
 </div>
+
+<search-result
+	ng-repeat="person in people"
+	person-object="person"
+	formatted-address-function="formattedAddress(aperson)">
+</search-result>
